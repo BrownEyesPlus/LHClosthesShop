@@ -17,7 +17,8 @@ const Title = styled.h1`
 
 const Desc = styled.div`
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 700;
+  color : gray;
   margin-bottom: 20px;
   ${mobile({ textAlign: "center" })}
 
@@ -49,10 +50,10 @@ const Button = styled.button`
 const Newsletter = () => {
   return (
     <Container>
-      <Title>Newsletter</Title>
-      <Desc>Get timely updates from your favorite products.</Desc>
+      <Title>Nhận tin mới</Title>
+      <Desc>Nhận thông báo mới nhất về các trang phục yêu thích của bạn.</Desc>
       <InputContainer>
-        <Input placeholder="Your email" />
+        <Input placeholder="Email của bạn" />
         <Button>
           <Send />
         </Button>

@@ -9,8 +9,9 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
-const KEY = process.env.REACT_APP_STRIPE;
+const KEY = process.env.REACT_APP_SRIPE;
 
 const Container = styled.div``;
 
@@ -187,14 +188,14 @@ const Cart = () => {
       <Navbar />
       <Announcement />
       <Wrapper>
-        <Title>YOUR BAG</Title>
+        <Title>GIỎ HÀNG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopButton> <Link classNAme="link" to="/">TIẾP TỤC MUA SẮM</Link> </TopButton>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>Giỏ hàng(2)</TopText>
+            <TopText>Mục yêu thích (0)</TopText>
           </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
+          <TopButton type="filled">Thanh toán</TopButton>
         </Top>
         <Bottom>
           <Info>
@@ -204,7 +205,7 @@ const Cart = () => {
                   <Image src={product.img} />
                   <Details>
                     <ProductName>
-                      <b>Product:</b> {product.title}
+                      <b>Sản phẩm:</b> {product.title}
                     </ProductName>
                     <ProductId>
                       <b>ID:</b> {product._id}
@@ -230,34 +231,34 @@ const Cart = () => {
             <Hr />
           </Info>
           <Summary>
-            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+            <SummaryTitle>Hóa đơn thanh toán</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice>{cart.total} VND</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
-              <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+              <SummaryItemText>Chi phí vận chuyển</SummaryItemText>
+              <SummaryItemPrice>0 VND</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
-              <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+              <SummaryItemText>Khuyến mãi vận chuyển</SummaryItemText>
+              <SummaryItemPrice>0 VND</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+              <SummaryItemText>Tổng</SummaryItemText>
+              <SummaryItemPrice>{cart.total} VND</SummaryItemPrice>
             </SummaryItem>
             <StripeCheckout
-              name="Lama Shop"
-              image="https://avatars.githubusercontent.com/u/1486366?v=4"
+              name="Linh Shop"
+              image="https://scontent.fhan5-6.fna.fbcdn.net/v/t1.6435-9/186918453_528666221621977_769949589952212923_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=E7gOsFfb6RAAX-x6I6A&_nc_ht=scontent.fhan5-6.fna&oh=00_AT-SK6oGXZi3PScs985Z55MmTKLuxT3sdjuiGucaG5YxUA&oe=61E2250B"
               billingAddress
               shippingAddress
-              description={`Your total is $${cart.total}`}
+              description={`Tổng hóa đơn của bạn :${cart.total} VND`}
               amount={cart.total * 100}
               token={onToken}
               stripeKey={KEY}
             >
-              <Button>CHECKOUT NOW</Button>
+              <Button>Thanh toán</Button>
             </StripeCheckout>
           </Summary>
         </Bottom>

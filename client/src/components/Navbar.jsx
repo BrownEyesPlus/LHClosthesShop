@@ -71,21 +71,21 @@ const MenuItem = styled.div`
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
   return (
-    <Container>
+    <Container style={{position: "sticky", top: "0", zIndex: "999", background: "beige"}}>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
+          <Language>VI</Language>
           <SearchContainer>
-            <Input placeholder="Search" />
+            <Input placeholder="Tìm" />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>LAMA.</Logo>
+          <Logo> <Link className="link" to="/">LH CLOTHES SHOP.</Link> </Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>Đăng ký</MenuItem>
+          <MenuItem>Đăng nhập</MenuItem>
           <Link to="/cart">
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">

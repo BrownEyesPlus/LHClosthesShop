@@ -12,18 +12,18 @@ export default function Home() {
 
   const MONTHS = useMemo(
     () => [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Agu",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      "Tháng 1",
+      "Tháng 2",
+      "Tháng 3",
+      "Tháng 4",
+      "Tháng 5",
+      "Tháng 6",
+      "Tháng 7",
+      "Tháng 8",
+      "Tháng 9",
+      "Tháng 10",
+      "Tháng 11",
+      "Tháng 12",
     ],
     []
   );
@@ -35,7 +35,7 @@ export default function Home() {
         res.data.map((item) =>
           setUserStats((prev) => [
             ...prev,
-            { name: MONTHS[item._id - 1], "Active User": item.total },
+            { name: MONTHS[item._id - 1], "Tài khoản đã đăng ký": item.total },
           ])
         );
       } catch {}
@@ -48,9 +48,9 @@ export default function Home() {
       <FeaturedInfo />
       <Chart
         data={userStats}
-        title="User Analytics"
+        title="Phân tích lượt đăng ký tài khoản"
         grid
-        dataKey="Active User"
+        dataKey="Tài khoản đã đăng ký"
       />
       <div className="homeWidgets">
         <WidgetSm />

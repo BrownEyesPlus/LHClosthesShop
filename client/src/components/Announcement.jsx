@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const Announcement = () => {
-  return <Container>Super Deal! Free Shipping on Orders Over $50</Container>;
+  return <Container>Siêu ưu đãi trong tháng 12 này lên đến <strong style={{color: "rgb(228 192 188)", fontSize: "20px", padding: "0px 3px"}}> 1 triệu đồng</strong> !</Container>;
 };
 
 export default Announcement;

@@ -26,6 +26,8 @@ const Logo = styled.h1``;
 
 const Desc = styled.p`
   margin: 20px 0px;
+  text-align: justify;
+  line-height: 25px;
 `;
 
 const SocialContainer = styled.div`
@@ -88,11 +90,9 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>LAMA.</Logo>
+        <Logo>LH CLOTHES SHOP.</Logo>
         <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
+        Shop Thời Trang Online Love Tree với phương châm "Đồng hành cùng phong cách thời trang của bạn" sẽ là nơi mua sắm an toàn và uy tín, bởi chúng tôi luôn đề cao tiêu chí mang đến cho quý khách những sản phẩm chất lượng nhất với giá cả luôn phải chăng. 
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
@@ -110,30 +110,29 @@ const Footer = () => {
         </SocialContainer>
       </Left>
       <Center>
-        <Title>Useful Links</Title>
+        <Title>Tag</Title>
         <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
-          <ListItem>Man Fashion</ListItem>
-          <ListItem>Woman Fashion</ListItem>
-          <ListItem>Accessories</ListItem>
-          <ListItem>My Account</ListItem>
-          <ListItem>Order Tracking</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Wishlist</ListItem>
-          <ListItem>Terms</ListItem>
+          <ListItem>Trang chủ</ListItem>
+          <ListItem>Giỏ hàng</ListItem>
+          <ListItem>Thời trang nam</ListItem>
+          <ListItem>Thời trang nữ</ListItem>
+          <ListItem>Phụ kiện</ListItem>
+          <ListItem>Tài khoản</ListItem>
+          <ListItem>Đơn hàng</ListItem>
+          <ListItem>Danh sách yêu thích</ListItem>
+          <ListItem>Mùa</ListItem>
         </List>
       </Center>
       <Right>
-        <Title>Contact</Title>
+        <Title>Liên Hệ</Title>
         <ContactItem>
-          <Room style={{marginRight:"10px"}}/> 622 Dixie Path , South Tobinchester 98336
+          <Room style={{marginRight:"10px"}}/> Số 88, đường Cao Lỗ, tt Đông Anh, Đông Anh, Hà Nội
         </ContactItem>
         <ContactItem>
-          <Phone style={{marginRight:"10px"}}/> +1 234 56 78
+          <Phone style={{marginRight:"10px"}}/> +123 4566 789
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> contact@lama.dev
+          <MailOutline style={{marginRight:"10px"}} /> linhmypham98@gmail.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
