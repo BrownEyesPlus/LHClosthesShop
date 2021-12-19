@@ -35,7 +35,7 @@ export default function FeaturedInfo() {
         </div>
         <span className="featuredSub">So với tháng trước</span>
       </div>
-      <div className="featuredItem">
+      {/* <div className="featuredItem">
         <span className="featuredTitle">Tổng số lượng</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">$4,415</span>
@@ -54,7 +54,7 @@ export default function FeaturedInfo() {
           </span>
         </div>
         <span className="featuredSub">So với tháng trước</span>
-      </div>
+      </div> */}
     </div>
   );
 }

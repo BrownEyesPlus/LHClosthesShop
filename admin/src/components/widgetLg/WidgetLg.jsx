@@ -5,6 +5,7 @@ import {format} from "timeago.js"
 
 export default function WidgetLg() {
   const [orders, setOrders] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const getOrders = async () => {
@@ -14,6 +15,13 @@ export default function WidgetLg() {
       } catch {}
     };
     getOrders();
+    const getUsers = async () => {
+      try {
+        const res = await userRequest.get("users/?new=true");
+        setUsers(res.data);
+      } catch {}
+    };
+    getUsers();
   }, []);
   const Button = ({ type }) => {
     return <button className={"widgetLgButton " + type}>{type}</button>;
@@ -28,13 +36,17 @@ export default function WidgetLg() {
           <th className="widgetLgTh">Đơn giá</th>
           <th className="widgetLgTh">Trạng thái</th>
         </tr>
-        {orders.map((order) => (
+        {orders.map((order,key) => (
           <tr className="widgetLgTr" key={order._id}>
             <td className="widgetLgUser">
-              <span className="widgetLgName">{order.userId}</span>
+            <span className="widgetLgName">
+              {/* {
+              (users[0]._id == order._id) ? (<></>) : (<>sai roi</>)
+              } */}
+            {order.userId}</span>
             </td>
             <td className="widgetLgDate">{format(order.createdAt)}</td>
-            <td className="widgetLgAmount">${order.amount}</td>
+            <td className="widgetLgAmount">{order.amount} VND</td>
             <td className="widgetLgStatus">
               <Button type={order.status} />
             </td>

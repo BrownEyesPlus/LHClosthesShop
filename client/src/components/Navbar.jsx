@@ -3,8 +3,9 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../redux/apiCalls";
 
 const Container = styled.div`
   height: 60px;
@@ -69,7 +70,18 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
-  const quantity = useSelector(state=>state.cart.quantity)
+
+  const user  = useSelector((state) => state.user);
+  console.log(user);
+  const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
+  const quantity = useSelector(state=>state.cart.quantity);
+
+  const handleLogoutClick = (e) => {
+    e.preventDefault();
+    logout(dispatch);
+  };
+
   return (
     <Container style={{position: "sticky", top: "0", zIndex: "999", background: "beige"}}>
       <Wrapper>
@@ -84,8 +96,22 @@ const Navbar = () => {
           <Logo> <Link className="link" to="/">LH CLOTHES SHOP.</Link> </Logo>
         </Center>
         <Right>
-          <MenuItem>Đăng ký</MenuItem>
-          <MenuItem>Đăng nhập</MenuItem>
+          {
+            user.currentUser ? (
+              <>
+              <MenuItem>Xin chào <strong>{user.currentUser.username}</strong> </MenuItem>
+              <MenuItem onClick={handleLogoutClick} disabled={isFetching} style={{color: "#b40404", fonWeight: "bold"}}> {user.currentUser && "Đăng xuất"} </MenuItem>
+              </>
+              
+            ) : (
+              <>
+              <MenuItem> <Link className="link" to="/register"> Đăng ký </Link> </MenuItem>
+              <MenuItem> <Link className="link" to="/login"> Đăng nhập </Link> </MenuItem>
+              </>
+            )
+          }
+          
+          
           <Link to="/cart">
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">

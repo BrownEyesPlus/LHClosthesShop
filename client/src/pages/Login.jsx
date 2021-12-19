@@ -69,6 +69,8 @@ const Error = styled.span`
 `;
 
 const Login = () => {
+  // const user  = useSelector((state) => state.user);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -77,6 +79,7 @@ const Login = () => {
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
+    // console.log(user.currentUser);
   };
   return (
     <Container>

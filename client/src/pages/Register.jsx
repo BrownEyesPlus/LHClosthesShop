@@ -1,4 +1,7 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { register } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -8,7 +11,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://mocah.org/uploads/posts/513927-background-bags.jpg")
       center;
   background-size: cover;
   display: flex;
@@ -54,7 +57,25 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const Error = styled.span`
+  color: red;
+`;
+
 const Register = () => {
+
+  
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    register(dispatch, { username, email, password });
+    (error === true) ? (console.log("a du")) : (window.location.replace("/login"));
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -62,15 +83,24 @@ const Register = () => {
         <Form>
           <Input placeholder="name" />
           <Input placeholder="last name" />
-          <Input placeholder="username" />
-          <Input placeholder="email" />
-          <Input placeholder="password" />
+          <Input placeholder="username"
+          onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input placeholder="email" 
+          onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input placeholder="password" 
+          onChange={(e) => setPassword(e.target.value)}
+          />
           <Input placeholder="confirm password" />
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button>CREATE</Button>
+          <Button onClick={handleClick} disabled={isFetching}>
+            CREATE
+          </Button>
+          {error && <Error>Something went wrong...</Error>}
         </Form>
       </Wrapper>
     </Container>

@@ -233,7 +233,7 @@ const Cart = () => {
           <Summary>
             <SummaryTitle>Hóa đơn thanh toán</SummaryTitle>
             <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemText>Phụ phí</SummaryItemText>
               <SummaryItemPrice>{cart.total} VND</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
