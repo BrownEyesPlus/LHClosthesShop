@@ -30,12 +30,12 @@ export default function Sidebar() {
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              Phân tích
             </li>
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
               Sales
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -50,17 +50,23 @@ export default function Sidebar() {
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                Sản phẩm
               </li>
             </Link>
-            <li className="sidebarListItem">
+            <Link to="/newproduct" className="link">
+              <li className="sidebarListItem">
+                <AttachMoney className="sidebarIcon" />
+                Tạo mới sản phẩm
+              </li>
+            </Link>
+            {/* <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions
             </li>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -76,24 +82,24 @@ export default function Sidebar() {
             </li>
             <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
-              Messages
+              Tin nhắn 
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
               Manage
             </li>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
-            </li>
+            </li> */}
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
-              Reports
+              Báo cáo
             </li>
           </ul>
         </div>

@@ -22,7 +22,7 @@ export default function ProductList() {
     { field: "_id", headerName: "ID", width: 220 },
     {
       field: "product",
-      headerName: "Product",
+      headerName: "Sản phẩm",
       width: 200,
       renderCell: (params) => {
         return (
@@ -33,21 +33,21 @@ export default function ProductList() {
         );
       },
     },
-    { field: "inStock", headerName: "Stock", width: 200 },
+    { field: "inStock", headerName: "Tồn kho", width: 200 },
     {
       field: "price",
-      headerName: "Price",
+      headerName: "Giá",
       width: 160,
     },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "Thao tác",
       width: 150,
       renderCell: (params) => {
         return (
           <>
             <Link to={"/product/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+              <button className="productListEdit">Chỉnh sửa</button>
             </Link>
             <DeleteOutline
               className="productListDelete"
@@ -60,15 +60,22 @@ export default function ProductList() {
   ];
 
   return (
-    <div className="productList">
-      <DataGrid
-        rows={products}
-        disableSelectionOnClick
-        columns={columns}
-        getRowId={(row) => row._id}
-        pageSize={8}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <div className="productList">
+        <DataGrid
+          rows={products}
+          disableSelectionOnClick
+          columns={columns}
+          getRowId={(row) => row._id}
+          pageSize={8}
+          checkboxSelection
+        />
+      </div>
+      {/* <Link to="/newproduct">
+          <button className="productAddButton">Tạo</button>
+        </Link> */}
+    </>
+    
+
   );
 }

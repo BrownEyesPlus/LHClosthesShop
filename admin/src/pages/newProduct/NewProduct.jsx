@@ -70,7 +70,7 @@ export default function NewProduct() {
 
   return (
     <div className="newProduct">
-      <h1 className="addProductTitle">New Product</h1>
+      <h1 className="addProductTitle">Sản phẩm mới</h1>
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
@@ -81,45 +81,45 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Title</label>
+          <label>Tên sản phẩm</label>
           <input
             name="title"
             type="text"
-            placeholder="Apple Airpods"
+            placeholder="Áo nam đẹp 001"
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>Description</label>
+          <label>Mô tả</label>
           <input
             name="desc"
             type="text"
-            placeholder="description..."
+            placeholder="Mô tả..."
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>Price</label>
+          <label>Giá</label>
           <input
             name="price"
             type="number"
-            placeholder="100"
+            placeholder="100.000"
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
-          <label>Categories</label>
-          <input type="text" placeholder="jeans,skirts" onChange={handleCat} />
+          <label>Danh mục</label>
+          <input type="text" placeholder="jeans,nam,nu" onChange={handleCat} />
         </div>
         <div className="addProductItem">
-          <label>Stock</label>
+          <label>Tồn kho</label>
           <select name="inStock" onChange={handleChange}>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="true">Còn</option>
+            <option value="false">Hết</option>
           </select>
         </div>
         <button onClick={handleClick} className="addProductButton">
-          Create
+          Tạo mới
         </button>
       </form>
     </div>

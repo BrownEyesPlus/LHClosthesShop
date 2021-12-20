@@ -44,12 +44,12 @@ export default function UserList() {
     },
     {
       field: "transaction",
-      headerName: "Transaction Volume",
+      headerName: "Giao dịch",
       width: 160,
     },
     {
       field: "action",
-      headerName: "Action",
+      headerName: "Thao tác",
       width: 150,
       renderCell: (params) => {
         return (
