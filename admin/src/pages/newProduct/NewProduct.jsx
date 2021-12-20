@@ -73,7 +73,7 @@ export default function NewProduct() {
       <h1 className="addProductTitle">Sản phẩm mới</h1>
       <form className="addProductForm">
         <div className="addProductItem">
-          <label>Image</label>
+          <label>Hình ảnh</label>
           <input
             type="file"
             id="file"

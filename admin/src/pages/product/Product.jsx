@@ -3,11 +3,38 @@ import "./product.css";
 import Chart from "../../components/chart/Chart";
 import { productData } from "../../dummyData";
 import { Publish } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
 import { userRequest } from "../../requestMethods";
+import { getProducts, updateProduct } from "../../redux/apiCalls";
 
 export default function Product() {
+
+  const dispatch = useDispatch();
+
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [price, setPrice] = useState("");
+  
+  // const [inStock, setInStock] = useState();
+ 
+  
+  
+  // useEffect(() => {
+  //   getProducts(dispatch);
+  // }, [dispatch]);
+
+  const test = (e,id) => {
+    e.preventDefault();
+    updateProduct(id, dispatch, { title, desc, price });
+    console.log(title+desc+price + " " + id);
+  }
+  const handleClick = ( id) => {
+    // e.preventDefault();
+    updateProduct(id, dispatch, { title, desc, price });
+    console.log(title+desc+price + " " +id);
+  };
+
   const location = useLocation();
   const productId = location.pathname.split("/")[2];
   const [pStats, setPStats] = useState([]);
@@ -91,13 +118,21 @@ export default function Product() {
         <form className="productForm">
           <div className="productFormLeft">
             <label>Tên sản phẩm</label>
-            <input type="text" placeholder={product.title} />
+            <input type="text" placeholder={product.title} 
+            onChange={(e) => setTitle(e.target.value)}
+            />
             <label>Miêu tả sản phẩm</label>
-            <input type="text" placeholder={product.desc} />
+            <input type="text" placeholder={product.desc} 
+            onChange={(e) => setDesc(e.target.value)}
+            />
             <label>Giá</label>
-            <input type="text" placeholder={product.price} />
+            <input type="text" placeholder={product.price} 
+            onChange={(e) => setPrice(e.target.value)}
+            />
             <label>Còn hàng</label>
-            <select name="inStock" id="idStock">
+            <select name="inStock" id="idStock" 
+            onChange={(e) =>console.log(e.target.value)}
+            >
               <option value="true">Còn</option>
               <option value="false">Hết</option>
             </select>
@@ -110,7 +145,8 @@ export default function Product() {
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton">Cập nhật</button>
+            <button className="productButton" onClick={()=>handleClick(product._id)}>Cập nhật</button>
+            <button className="" type="text" onClick={() =>test(product._id)}>Test</button>
           </div>
         </form>
       </div>

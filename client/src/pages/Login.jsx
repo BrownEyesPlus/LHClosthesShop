@@ -11,7 +11,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://previews.123rf.com/images/stillab/stillab1709/stillab170900012/86097401-flat-lay-men-s-fashion-casual-outfits-and-accessories-on-white-wooden-background.jpg")
       center;
   background-size: cover;
   display: flex;
@@ -83,9 +83,9 @@ const Login = () => {
   };
   return (
     <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
+      <Wrapper style={{textAlign: "center"}}>
+        <Title>ĐĂNG NHẬP</Title>
+        <Form >
           <Input
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
@@ -95,12 +95,12 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
-            LOGIN
+          <Button style={{margin: "auto", marginBottom: "5px"}} onClick={handleClick} disabled={isFetching}>
+            Đăng nhập
           </Button>
-          {error && <Error>Something went wrong...</Error>}
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          {error && <Error>Tài khoản và mật khẩu không đúng...</Error>}
+          <Link style={{color: "red"}}>QUÊN MẬT KHẨU?</Link>
+          <Link to="/register" style={{color: "green"}}>TẠO TÀI KHOẢN MỚI</Link>
         </Form>
       </Wrapper>
     </Container>
